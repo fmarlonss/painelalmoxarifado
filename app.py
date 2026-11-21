@@ -8,12 +8,16 @@ import plotly.express as px
 import streamlit as st
 from fpdf import FPDF
 
+import auth
 import dados_google
 
 # Configuração inicial da página
 st.set_page_config(
     page_title="Painel de Controle de Saídas", page_icon="📦", layout="wide"
 )
+
+# --- LOGIN: nada abaixo roda sem autenticação ---
+auth.exigir_login()
 
 # Paleta institucional
 COR_PRIMARIA = "#094780"
@@ -388,7 +392,8 @@ df_raw = carregar_dados()
 df_inv_raw = carregar_inventario_previsao()
 
 
-# --- SIDEBAR: ATUALIZAÇÃO + FILTROS GLOBAIS ---
+# --- SIDEBAR: USUÁRIO + ATUALIZAÇÃO + FILTROS GLOBAIS ---
+auth.painel_usuario_sidebar()
 if st.sidebar.button("🔄 Atualizar dados", use_container_width=True):
     st.cache_data.clear()
     st.rerun()
