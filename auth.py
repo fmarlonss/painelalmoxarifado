@@ -29,7 +29,7 @@ def _cfg(chave, padrao):
         return padrao
 
 
-ID_USUARIOS = _cfg("ID_PLANILHA_USUARIOS", "")  # <- ID da planilha de usuários
+ID_USUARIOS = _cfg("ID_PLANILHA_USUARIOS", "1MgMAwlA_ViiZzWTYIcLX4twxPxFVdoTORoCIy4KXuhk")
 GID_USUARIOS = _cfg("GID_USUARIOS", "0")
 
 ITERACOES = 600_000            # custo do hash PBKDF2-SHA256
